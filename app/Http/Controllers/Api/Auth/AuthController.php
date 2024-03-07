@@ -27,16 +27,16 @@ class AuthController extends Controller
             'success' => true,
             'user'    => auth()->guard('api_admin')->user(),
             'token'   => $token
-        ], 201);
+        ], 200);
     }
     public function getUser() {
         return response()->json([
             'user'=>auth()->guard('api_admin')->user()
-        ]);
+        ],200);
     }
     public function getMenus() {
         return response()->json([
             'permissions_name'=>RoleHasPermission::all()
-        ]);
+        ],200);
     }
 }
